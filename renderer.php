@@ -161,6 +161,9 @@ class qtype_ordering_renderer extends qtype_with_combined_feedback_renderer {
 
                 // Cache this answer key.
                 $md5keys[] = $question->answers[$answerid]->md5key;
+				
+				// Add an extra li at the end of the list
+				$result .= html_writer::tag('li', "Test item", $params);
             }
         }
 
