@@ -67,6 +67,8 @@ class qtype_ordering_question extends question_graded_automatically {
     const GRADING_LONGEST_CONTIGUOUS_SUBSET = 6;
     /** @var int Items are graded relative to their position in the correct answer */
     const GRADING_RELATIVE_TO_CORRECT = 7;
+    /** @var int Single answers that are placed before and after each answer is graded if in right order, plus additional items in excluded group */
+    const GRADING_RELATIVE_ONE_PREVIOUS_AND_NEXT_WITH_EXCLUSIONS = 8;
 
     // Fields from "qtype_ordering_options" table.
     /** @var string */
@@ -839,7 +841,8 @@ class qtype_ordering_question extends question_graded_automatically {
             self::GRADING_RELATIVE_ONE_PREVIOUS_AND_NEXT => get_string('relativeonepreviousandnext', $plugin),
             self::GRADING_RELATIVE_ALL_PREVIOUS_AND_NEXT => get_string('relativeallpreviousandnext', $plugin),
             self::GRADING_LONGEST_ORDERED_SUBSET         => get_string('longestorderedsubset',       $plugin),
-            self::GRADING_LONGEST_CONTIGUOUS_SUBSET      => get_string('longestcontiguoussubset',    $plugin)
+            self::GRADING_LONGEST_CONTIGUOUS_SUBSET      => get_string('longestcontiguoussubset',    $plugin),
+			self::GRADING_RELATIVE_ONE_PREVIOUS_AND_NEXT_WITH_EXCLUSIONS => get_string('relativeonepreviousandnextwithexclusions', $plugin)
         );
         return self::get_types($types, $type);
     }
