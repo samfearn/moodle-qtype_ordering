@@ -560,6 +560,7 @@ class qtype_ordering_question extends question_graded_automatically {
                     'selecttype' => self::SELECT_ALL,
                     'selectcount' => 0,
                     'gradingtype' => self::GRADING_ABSOLUTE_POSITION,
+					'exclusiontype' => self::EXCLUSIONS_DISABLED,
                     'showgrading' => 1,
                     'numberingstyle' => self::NUMBERING_STYLE_DEFAULT,
                     'correctfeedback' => '',
