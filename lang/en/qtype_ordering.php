@@ -69,10 +69,7 @@ $string['gradingtype_help'] = 'Choose the type of grading calculation.
 &nbsp; The grade is the number of items in the longest ordered subset of items. The highest possible grade is the same as the number of items displayed. A subset must have at least two items. Subsets do not need to start at the first item (but they can) and they do not need to be contiguous (but they can be). Where there are multiple subsets of equal length, items in the subset that is found first, when searching from left to right, will be displayed as correct. Other items will be marked as incorrect.
 
 **Longest contiguous subset**  
-&nbsp; The grade is the number of items in the longest contiguous subset of items. The highest possible grade is the same as the number of items displayed. A subset must have at least two items. Subsets do not need to start at the first item (but they can) and they MUST BE CONTIGUOUS. Where there are multiple subsets of equal length, items in the subset that is found first, when searching from left to right, will be displayed as correct. Other items will be marked as incorrect.
-
-**Relative to both the previous and next items, with exclusions**
-&nbsp; This works like the `Relative to both the previous and next items` grading, but also allows for some items to be marked as excluded from the correct ordering. The excluded items may appear in any order.';
+&nbsp; The grade is the number of items in the longest contiguous subset of items. The highest possible grade is the same as the number of items displayed. A subset must have at least two items. Subsets do not need to start at the first item (but they can) and they MUST BE CONTIGUOUS. Where there are multiple subsets of equal length, items in the subset that is found first, when searching from left to right, will be displayed as correct. Other items will be marked as incorrect.'';
 
 $string['horizontal'] = 'Horizontal';
 
@@ -108,7 +105,6 @@ $string['relativeallpreviousandnext'] = 'Relative to ALL the previous and next i
 $string['relativenextexcludelast'] = 'Relative to the next item (excluding last)';
 $string['relativenextincludelast'] = 'Relative to the next item (including last)';
 $string['relativeonepreviousandnext'] = 'Relative to both the previous and next items';
-$string['relativeonepreviousandnextwithexclusions'] = 'Relative to both the previous and next items, with exclusions';
 $string['relativetocorrect'] = 'Relative to correct position';
 $string['removeeditor'] = 'Remove HTML editor';
 $string['removeitem'] = 'Remove draggable item';
