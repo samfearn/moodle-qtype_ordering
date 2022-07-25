@@ -69,6 +69,11 @@ class qtype_ordering_question extends question_graded_automatically {
     const GRADING_RELATIVE_TO_CORRECT = 7;
     /** @var int Single answers that are placed before and after each answer is graded if in right order, plus additional items in excluded group */
     const GRADING_RELATIVE_ONE_PREVIOUS_AND_NEXT_WITH_EXCLUSIONS = 8;
+	
+	/** Enabled a set of answers which should be excluded from the correct answer */
+	const EXCLUSIONS_ENABLED = 0;
+	/** Disables a set of answers which should be excluded from the correct answer */
+	const EXCLUSIONS_DISABLED = 1;
 
     // Fields from "qtype_ordering_options" table.
     /** @var string */
