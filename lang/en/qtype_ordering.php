@@ -69,7 +69,7 @@ $string['gradingtype_help'] = 'Choose the type of grading calculation.
 &nbsp; The grade is the number of items in the longest ordered subset of items. The highest possible grade is the same as the number of items displayed. A subset must have at least two items. Subsets do not need to start at the first item (but they can) and they do not need to be contiguous (but they can be). Where there are multiple subsets of equal length, items in the subset that is found first, when searching from left to right, will be displayed as correct. Other items will be marked as incorrect.
 
 **Longest contiguous subset**  
-&nbsp; The grade is the number of items in the longest contiguous subset of items. The highest possible grade is the same as the number of items displayed. A subset must have at least two items. Subsets do not need to start at the first item (but they can) and they MUST BE CONTIGUOUS. Where there are multiple subsets of equal length, items in the subset that is found first, when searching from left to right, will be displayed as correct. Other items will be marked as incorrect.'';
+&nbsp; The grade is the number of items in the longest contiguous subset of items. The highest possible grade is the same as the number of items displayed. A subset must have at least two items. Subsets do not need to start at the first item (but they can) and they MUST BE CONTIGUOUS. Where there are multiple subsets of equal length, items in the subset that is found first, when searching from left to right, will be displayed as correct. Other items will be marked as incorrect.';
 
 $string['horizontal'] = 'Horizontal';
 
