@@ -36,7 +36,10 @@ $string['defaultquestionname'] = 'Drag the following items into the correct orde
 
 $string['duplicatesnotallowed'] = 'Duplication of draggable items is not allowed. The string "{$a->text}" is already used in {$a->item}.';
 $string['editingordering'] = 'Editing ordering question';
-
+$string['exclusiontype'] = 'Excluded items';
+$string['exclusiontype_help'] = 'Choose whether some items should be marked as excluded from the final answer in order to be correct.';
+$string['exclusionsenabled'] = 'Exclusions enabled';
+$string['exclusionsdisabled'] = 'Exclusions disabled';
 $string['gradedetails'] = 'Grade details';
 $string['gradingtype'] = 'Grading type';
 $string['gradingtype_help'] = 'Choose the type of grading calculation.

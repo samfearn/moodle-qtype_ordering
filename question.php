@@ -846,6 +846,21 @@ class qtype_ordering_question extends question_graded_automatically {
         );
         return self::get_types($types, $type);
     }
+	
+    /**
+     * Returns available values and descriptions for field "exclusiontype"
+     *
+     * @param int $type
+     * @return array|string array if $type is not specified and single string if $type is specified
+     */
+    static public function get_exclusion_types($type=null) {
+        $plugin = 'qtype_ordering';
+        $types = array(
+            self::EXCLUSIONS_ENABLED   => get_string('exclusionsenabled',   $plugin),
+            self::EXCLUSIONS_DISABLED => get_string('exclusionsdisabled', $plugin)
+        );
+        return self::get_types($types, $type);
+    }
 
     /**
      * @param string $style

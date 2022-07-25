@@ -110,6 +110,14 @@ class qtype_ordering_edit_form extends question_edit_form {
         $mform->addElement('select', $name, $label, $options);
         $mform->addHelpButton($name, $name, $plugin);
         $mform->setDefault($name, $this->get_my_default_value($name, qtype_ordering_question::GRADING_ABSOLUTE_POSITION));
+		
+		// Field for exclusiontype
+        $name = 'exclusiontype';
+        $label = get_string($name, $plugin);
+        $options = qtype_ordering_question::get_exclusion_types();
+        $mform->addElement('select', $name, $label, $options);
+        $mform->addHelpButton($name, $name, $plugin);
+        $mform->setDefault($name, $this->get_my_default_value($name, qtype_ordering_question::EXCLUSIONS_DISABLED));
 
         // Field for showgrading.
         $name = 'showgrading';
@@ -344,6 +352,7 @@ class qtype_ordering_edit_form extends question_edit_form {
             'selecttype'  => qtype_ordering_question::SELECT_ALL,
             'selectcount' => 0, // 0 means ALL.
             'gradingtype' => qtype_ordering_question::GRADING_ABSOLUTE_POSITION,
+			'exclusiontype' => qtype_ordering_question::EXCLUSIONS_DISABLED,
             'showgrading' => 1,  // 1 means SHOW.
             'numberingstyle' => qtype_ordering_question::NUMBERING_STYLE_DEFAULT
         );
@@ -400,7 +409,7 @@ class qtype_ordering_edit_form extends question_edit_form {
         // If adding a new ordering question, update defaults.
         if (empty($errors) && empty($data['id'])) {
             $fields = array('layouttype', 'selecttype', 'selectcount',
-                            'gradingtype', 'showgrading', 'numberingstyle');
+                            'gradingtype', 'exclusiontype', 'showgrading', 'numberingstyle');
             foreach ($fields as $field) {
                 if (array_key_exists($field, $data)) {
                     $this->set_my_default_value($field, $data[$field]);
