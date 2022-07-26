@@ -111,13 +111,13 @@ class qtype_ordering_edit_form extends question_edit_form {
         $mform->addHelpButton($name, $name, $plugin);
         $mform->setDefault($name, $this->get_my_default_value($name, qtype_ordering_question::GRADING_ABSOLUTE_POSITION));
 		
-		// Field for exclusiontype
-        $name = 'exclusiontype';
+		// Field for distractortype. When this is disabled, the excluded answers fields will not appear.
+        $name = 'distractortype';
         $label = get_string($name, $plugin);
-        $options = qtype_ordering_question::get_exclusion_types();
+        $options = qtype_ordering_question::get_distractor_types();
         $mform->addElement('select', $name, $label, $options);
         $mform->addHelpButton($name, $name, $plugin);
-        $mform->setDefault($name, $this->get_my_default_value($name, qtype_ordering_question::EXCLUSIONS_DISABLED));
+        $mform->setDefault($name, $this->get_my_default_value($name, qtype_ordering_question::DISTRACTORS_DISABLED));
 
         // Field for showgrading.
         $name = 'showgrading';
@@ -129,8 +129,8 @@ class qtype_ordering_edit_form extends question_edit_form {
         $mform->setDefault($name, $this->get_my_default_value($name, 1));
 		
 		// Disable my control when a dropdown has value 42.
-		$mform->disabledIf('numberingstyle', 'exclusiontype', 'eq', 1);
-		$mform->hideIf('numberingstyle', 'exclusiontype', 'eq', 1);
+		// $mform->disabledIf('numberingstyle', 'distractortype', 'eq', 1);
+        //$mform->hideIf('numberingstyle', 'distractortype', 'eq', 1);
 
         $name = 'numberingstyle';
         $label = get_string($name, $plugin);
@@ -138,6 +138,8 @@ class qtype_ordering_edit_form extends question_edit_form {
         $mform->addElement('select', $name, $label, $options);
         $mform->addHelpButton($name, $name, $plugin);
         $mform->setDefault($name, $this->get_my_default_value($name, qtype_ordering_question::NUMBERING_STYLE_DEFAULT));
+		
+		// Add multiple answer fields
 
         $elements = array();
         $options = array();
@@ -149,11 +151,12 @@ class qtype_ordering_edit_form extends question_edit_form {
 
         $name = 'answer';
         $elements[] = $mform->createElement('editor', $name, $label, $this->get_editor_attributes(), $this->get_editor_options());
-        $elements[] = $mform->createElement('submit', $name . 'removeeditor', get_string('removeeditor', $plugin),
-                array('onclick' => 'skipClientValidation = true;'));
+        $elements[] = $mform->createElement('submit', $name . 'removeeditor', get_string('removeeditor', $plugin),array('onclick' => 'skipClientValidation = true;'));
         $options[$name] = array('type' => PARAM_RAW);
 
         $this->add_repeat_elements($mform, $name, $elements, $options);
+		
+		// Add multiple distractor fields
 
         // Adjust HTML editor and removal buttons.
         $this->adjust_html_editors($mform, $name);
@@ -356,7 +359,7 @@ class qtype_ordering_edit_form extends question_edit_form {
             'selecttype'  => qtype_ordering_question::SELECT_ALL,
             'selectcount' => 0, // 0 means ALL.
             'gradingtype' => qtype_ordering_question::GRADING_ABSOLUTE_POSITION,
-			'exclusiontype' => qtype_ordering_question::EXCLUSIONS_DISABLED,
+			'distractortype' => qtype_ordering_question::DISTRACTORS_DISABLED,
             'showgrading' => 1,  // 1 means SHOW.
             'numberingstyle' => qtype_ordering_question::NUMBERING_STYLE_DEFAULT
         );
@@ -413,7 +416,7 @@ class qtype_ordering_edit_form extends question_edit_form {
         // If adding a new ordering question, update defaults.
         if (empty($errors) && empty($data['id'])) {
             $fields = array('layouttype', 'selecttype', 'selectcount',
-                            'gradingtype', 'exclusiontype', 'showgrading', 'numberingstyle');
+                            'gradingtype', 'distractortype', 'showgrading', 'numberingstyle');
             foreach ($fields as $field) {
                 if (array_key_exists($field, $data)) {
                     $this->set_my_default_value($field, $data[$field]);

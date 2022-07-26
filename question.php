@@ -69,9 +69,9 @@ class qtype_ordering_question extends question_graded_automatically {
     const GRADING_RELATIVE_TO_CORRECT = 7;
 	
 	/** Disables a set of answers which should be excluded from the correct answer */
-	const EXCLUSIONS_DISABLED = 0;
+	const DISTRACTORS_DISABLED = 0;
 	/** Enabled a set of answers which should be excluded from the correct answer */
-	const EXCLUSIONS_ENABLED = 1;
+	const DISTRACTORS_ENABLED = 1;
 
     // Fields from "qtype_ordering_options" table.
     /** @var string */
@@ -558,7 +558,7 @@ class qtype_ordering_question extends question_graded_automatically {
                     'selecttype' => self::SELECT_ALL,
                     'selectcount' => 0,
                     'gradingtype' => self::GRADING_ABSOLUTE_POSITION,
-					'exclusiontype' => self::EXCLUSIONS_DISABLED,
+					'distractortype' => self::DISTRACTORS_DISABLED,
                     'showgrading' => 1,
                     'numberingstyle' => self::NUMBERING_STYLE_DEFAULT,
                     'correctfeedback' => '',
@@ -851,16 +851,16 @@ class qtype_ordering_question extends question_graded_automatically {
     }
 	
     /**
-     * Returns available values and descriptions for field "exclusiontype"
+     * Returns available values and descriptions for field "distractortype"
      *
      * @param int $type
      * @return array|string array if $type is not specified and single string if $type is specified
      */
-    static public function get_exclusion_types($type=null) {
+    static public function get_distractor_types($type=null) {
         $plugin = 'qtype_ordering';
         $types = array(
-            self::EXCLUSIONS_ENABLED   => get_string('exclusionsenabled',   $plugin),
-            self::EXCLUSIONS_DISABLED => get_string('exclusionsdisabled', $plugin)
+            self::DISTRACTORS_ENABLED   => get_string('distractorsenabled',   $plugin),
+            self::DISTRACTORS_DISABLED => get_string('distractorsdisabled', $plugin)
         );
         return self::get_types($types, $type);
     }

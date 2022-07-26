@@ -54,7 +54,7 @@ class qtype_ordering extends question_type {
     public function extra_question_fields() {
         return array('qtype_ordering_options',
                      'layouttype', 'selecttype', 'selectcount',
-                     'gradingtype', 'exclusiontype', 'showgrading', 'numberingstyle');
+                     'gradingtype', 'distractortype', 'showgrading', 'numberingstyle');
     }
 
     /**
@@ -187,7 +187,7 @@ class qtype_ordering extends question_type {
             'selecttype' => $question->selecttype,
             'selectcount' => $question->selectcount,
             'gradingtype' => $question->gradingtype,
-			'exclusiontype' => $question->exclusiontype,
+			'distractortype' => $question->distractortype,
             'showgrading' => $question->showgrading,
             'numberingstyle' => $question->numberingstyle
         );
