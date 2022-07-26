@@ -118,6 +118,10 @@ class qtype_ordering_edit_form extends question_edit_form {
         $mform->addElement('select', $name, $label, $options);
         $mform->addHelpButton($name, $name, $plugin);
         $mform->setDefault($name, $this->get_my_default_value($name, qtype_ordering_question::DISTRACTORS_DISABLED));
+		
+		// Disable distractors when distractortype is DISTRACTORS_DISABLED
+		// $mform->disabledIf('numberingstyle', 'distractortype', 'eq', 1);
+        // $mform->hideIf('numberingstyle', 'distractortype', 'eq', 1);
 
         // Field for showgrading.
         $name = 'showgrading';
@@ -127,10 +131,6 @@ class qtype_ordering_edit_form extends question_edit_form {
         $mform->addElement('select', $name, $label, $options);
         $mform->addHelpButton($name, $name, $plugin);
         $mform->setDefault($name, $this->get_my_default_value($name, 1));
-		
-		// Disable my control when a dropdown has value 42.
-		// $mform->disabledIf('numberingstyle', 'distractortype', 'eq', 1);
-        //$mform->hideIf('numberingstyle', 'distractortype', 'eq', 1);
 
         $name = 'numberingstyle';
         $label = get_string($name, $plugin);
@@ -139,15 +139,15 @@ class qtype_ordering_edit_form extends question_edit_form {
         $mform->addHelpButton($name, $name, $plugin);
         $mform->setDefault($name, $this->get_my_default_value($name, qtype_ordering_question::NUMBERING_STYLE_DEFAULT));
 		
+        $name = 'answerheader';
+        $label = get_string($name, $plugin);
+		$options = array('expanded' => true);
+        $mform->addElement('header', $name, $label);
+        
 		// Add multiple answer fields
 
         $elements = array();
         $options = array();
-
-        $name = 'answerheader';
-        $label = get_string($name, $plugin);
-        $elements[] = $mform->createElement('header', $name, $label);
-        $options[$name] = array('expanded' => true);
 
         $name = 'answer';
         $elements[] = $mform->createElement('editor', $name, $label, $this->get_editor_attributes(), $this->get_editor_options());
