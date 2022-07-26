@@ -155,7 +155,7 @@ class qtype_ordering_edit_form extends question_edit_form {
 		$label = get_string($name.'label', $plugin);
         $elements[] = $mform->createElement('editor', $name, $label, $this->get_editor_attributes(), $this->get_editor_options());
         $elements[] = $mform->createElement('submit', $name . 'removeeditor', get_string('removeeditor', $plugin),array('onclick' => 'skipClientValidation = true;'));
-        $options[$name] = array('type' => PARAM_RAW, 'disabledif' => array('distractortype', 'eq', 1));
+        $options[$name] = array('type' => PARAM_RAW);
 
         $this->add_repeat_elements($mform, $name, $elements, $options);
 		
@@ -178,7 +178,7 @@ class qtype_ordering_edit_form extends question_edit_form {
 		$label = get_string($name.'label', $plugin);
         $elements[] = $mform->createElement('editor', $name, $label, $this->get_editor_attributes(), $this->get_editor_options());
         $elements[] = $mform->createElement('submit', $name . 'removeeditor', get_string('removeeditor', $plugin),array('onclick' => 'skipClientValidation = true;'));
-        $options[$name] = array('type' => PARAM_RAW);
+        $options[$name] = array('type' => PARAM_RAW, 'disabledif' => array('distractortype', 'eq', 0));
 
         $this->add_repeat_elements($mform, $name, $elements, $options);
 
