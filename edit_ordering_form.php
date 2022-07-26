@@ -127,6 +127,9 @@ class qtype_ordering_edit_form extends question_edit_form {
         $mform->addElement('select', $name, $label, $options);
         $mform->addHelpButton($name, $name, $plugin);
         $mform->setDefault($name, $this->get_my_default_value($name, 1));
+		
+		// Disable my control when a dropdown has value 42.
+		$mform->disabledIf('numberingstyle', 'exclusiontype', 'eq', 1);
 
         $name = 'numberingstyle';
         $label = get_string($name, $plugin);
