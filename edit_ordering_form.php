@@ -120,8 +120,8 @@ class qtype_ordering_edit_form extends question_edit_form {
         $mform->setDefault($name, $this->get_my_default_value($name, qtype_ordering_question::DISTRACTORS_DISABLED));
 		
 		// Disable distractors when distractortype is DISTRACTORS_DISABLED
-		// $mform->disabledIf('numberingstyle', 'distractortype', 'eq', 1);
-        // $mform->hideIf('numberingstyle', 'distractortype', 'eq', 1);
+		//$mform->disabledIf('numberingstyle', 'distractortype', 'eq', 1);
+        //$mform->hideIf('numberingstyle', 'distractortype', 'eq', 1);
 
         // Field for showgrading.
         $name = 'showgrading';
@@ -155,7 +155,7 @@ class qtype_ordering_edit_form extends question_edit_form {
 		$label = get_string($name.'label', $plugin);
         $elements[] = $mform->createElement('editor', $name, $label, $this->get_editor_attributes(), $this->get_editor_options());
         $elements[] = $mform->createElement('submit', $name . 'removeeditor', get_string('removeeditor', $plugin),array('onclick' => 'skipClientValidation = true;'));
-        $options[$name] = array('type' => PARAM_RAW);
+        $options[$name] = array('type' => PARAM_RAW, 'disabledif' => array('distractortype', 'eq', 1));
 
         $this->add_repeat_elements($mform, $name, $elements, $options);
 		
