@@ -23,8 +23,10 @@
  */
 
 $string['absoluteposition'] = 'Absolute position';
-$string['addmultipleanswers'] = 'Add {$a} more items';
-$string['addsingleanswer'] = 'Add one more item';
+$string['addmultipleanswers'] = 'Add {$a} more answers';
+$string['addmultipledistractors'] = 'Add {$a} more distractors';
+$string['addsingleanswer'] = 'Add one more answer';
+$string['addsingledistractor'] = 'Add one more distractor';
 $string['allornothing'] = 'All or nothing';
 $string['answer'] = 'Item text';
 $string['answerheader'] = 'Answers in correct order';
