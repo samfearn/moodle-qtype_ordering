@@ -164,8 +164,8 @@ class qtype_ordering_renderer extends qtype_with_combined_feedback_renderer {
 				
             }
 			// Add an extra li at the end of the list
-			$result .= html_writer::tag('li', "Test item");
-			$result .= html_writer::tag('li', "Test item", $params);
+			// $result .= html_writer::tag('li', "Test item");
+// 			$result .= html_writer::tag('li', "Test item", $params);
         }
 
         if ($printeditems) {
