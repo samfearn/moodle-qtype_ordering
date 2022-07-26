@@ -159,7 +159,10 @@ class qtype_ordering_edit_form extends question_edit_form {
 
         $this->add_repeat_elements($mform, $name, $elements, $options);
 		
-		// Add header for answers fields
+        // Adjust HTML editor and removal buttons.
+        $this->adjust_html_editors($mform, $name);
+		
+		// Add header for distractor fields
 		
         $name = 'distractorheader';
         $label = get_string($name, $plugin);
