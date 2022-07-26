@@ -27,19 +27,25 @@ $string['addmultipleanswers'] = 'Add {$a} more items';
 $string['addsingleanswer'] = 'Add one more item';
 $string['allornothing'] = 'All or nothing';
 $string['answer'] = 'Item text';
-$string['answerheader'] = 'Draggable item {no}';
+$string['answerheader'] = 'Answers in correct order';
+$string['answerlabel'] = 'Answer {no}';
 
 $string['correctorder'] = 'The correct order for these items is as follows:';
 
 $string['defaultanswerformat'] = 'Default answer format';
 $string['defaultquestionname'] = 'Drag the following items into the correct order.';
-
+$string['distractorheader'] = 'Distractors';
 $string['duplicatesnotallowed'] = 'Duplication of draggable items is not allowed. The string "{$a->text}" is already used in {$a->item}.';
-$string['editingordering'] = 'Editing ordering question';
+
+$string['distractorsdisabled'] = 'Distractors disabled';
+$string['distractorsenabled'] = 'Distractors enabled';
+$string['distractorheader'] = 'Distractors';
+$string['distractorlabel'] = 'Distractor {no}';
 $string['distractortype'] = 'Excluded items';
 $string['distractortype_help'] = 'Choose whether some items should be marked as excluded from the final answer in order to be correct.';
-$string['distractorsenabled'] = 'Distractors enabled';
-$string['distractorsdisabled'] = 'Distractors disabled';
+
+$string['editingordering'] = 'Editing ordering question';
+
 $string['gradedetails'] = 'Grade details';
 $string['gradingtype'] = 'Grading type';
 $string['gradingtype_help'] = 'Choose the type of grading calculation.

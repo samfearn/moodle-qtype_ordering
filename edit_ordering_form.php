@@ -139,6 +139,8 @@ class qtype_ordering_edit_form extends question_edit_form {
         $mform->addHelpButton($name, $name, $plugin);
         $mform->setDefault($name, $this->get_my_default_value($name, qtype_ordering_question::NUMBERING_STYLE_DEFAULT));
 		
+		// Add header for answers fields
+		
         $name = 'answerheader';
         $label = get_string($name, $plugin);
 		$options = array('expanded' => true);
@@ -150,13 +152,32 @@ class qtype_ordering_edit_form extends question_edit_form {
         $options = array();
 
         $name = 'answer';
+		$label = get_string($name.'label', $plugin);
         $elements[] = $mform->createElement('editor', $name, $label, $this->get_editor_attributes(), $this->get_editor_options());
         $elements[] = $mform->createElement('submit', $name . 'removeeditor', get_string('removeeditor', $plugin),array('onclick' => 'skipClientValidation = true;'));
         $options[$name] = array('type' => PARAM_RAW);
 
         $this->add_repeat_elements($mform, $name, $elements, $options);
 		
+		// Add header for answers fields
+		
+        $name = 'distractorheader';
+        $label = get_string($name, $plugin);
+		$options = array('expanded' => true);
+        $mform->addElement('header', $name, $label);
+        
 		// Add multiple distractor fields
+
+        $elements = array();
+        $options = array();
+
+        $name = 'distractor';
+		$label = get_string($name.'label', $plugin);
+        $elements[] = $mform->createElement('editor', $name, $label, $this->get_editor_attributes(), $this->get_editor_options());
+        $elements[] = $mform->createElement('submit', $name . 'removeeditor', get_string('removeeditor', $plugin),array('onclick' => 'skipClientValidation = true;'));
+        $options[$name] = array('type' => PARAM_RAW);
+
+        $this->add_repeat_elements($mform, $name, $elements, $options);
 
         // Adjust HTML editor and removal buttons.
         $this->adjust_html_editors($mform, $name);
