@@ -130,6 +130,7 @@ class qtype_ordering_edit_form extends question_edit_form {
 		
 		// Disable my control when a dropdown has value 42.
 		$mform->disabledIf('numberingstyle', 'exclusiontype', 'eq', 1);
+		$mform->hideIf('numberingstyle', 'exclusiontype', 'eq', 1);
 
         $name = 'numberingstyle';
         $label = get_string($name, $plugin);
