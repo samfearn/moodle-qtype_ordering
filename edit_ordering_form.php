@@ -120,7 +120,8 @@ class qtype_ordering_edit_form extends question_edit_form {
         $mform->setDefault($name, $this->get_my_default_value($name, qtype_ordering_question::DISTRACTORS_DISABLED));
 		
 		// Disable distractors when distractortype is DISTRACTORS_DISABLED
-        $mform->hideIf('showgrading', 'distractortype', 'eq', 0);
+	    $mform->hideIf('showgrading', 'distractortype', 'eq', 0);
+		$mform->hideIf('distractorheader', 'distractortype', 'eq', 0);
 
         // Field for showgrading.
         $name = 'showgrading';
